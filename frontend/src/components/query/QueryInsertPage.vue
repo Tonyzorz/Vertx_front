@@ -43,6 +43,7 @@ export default {
   },
   methods: {
     mySubmit() {
+      console.log("this.query" + JSON.stringify(this.query));
       this.$http
         .post("/queryInsert", this.query)
         .then(res => {
