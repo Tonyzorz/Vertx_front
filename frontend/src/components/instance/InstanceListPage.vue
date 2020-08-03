@@ -79,7 +79,7 @@ export default {
           //go through queryString and find the id and delete from data
           for (var i = 0; i < this.instance.length; i++) {
             if (this.instance[i].id == idValue && this.instance[i].role == roleValue && this.instance[i].role_instance_id == instanceIdValue) {
-              this.instance.splice(this.instance[i], 1);
+              this.instance.splice(i, 1);
             }
           }
         })

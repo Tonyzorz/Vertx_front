@@ -6,15 +6,19 @@
     </div>
     <div>
       <label for="queryString">쿼리 내용</label>
-      <input type="text" name="queryString" required v-model="query.queryString" />
+      <textarea rows="5" cols="100" name="queryString" required v-model="query.queryString" />
     </div>
     <div>
-      <label for="desc">세부 설명</label>
-      <input type="text" name="desc" required v-model="query.desc" />
+      <label for="descript">세부 설명</label>
+      <textarea rows="5" cols="100" name="descript" required v-model="query.descript" />
     </div>
     <div>
       <label for="sqlType">디비 타입</label>
       <input type="text" name="sqlType" required v-model="query.sqlType" />
+    </div>
+    <div>
+      <label for="role">권한</label>
+      <input type="text" name="role" required v-model="query.role" />
     </div>
     <div>
       <button type="submit">업로드</button>
@@ -30,8 +34,9 @@ export default {
       query: {
         id: "",
         queryString: "",
-        desc: "",
+        descript: "",
         sqlType: "",
+        role: "",
       },
       response: ""
     };
@@ -47,7 +52,8 @@ export default {
           console.error("upload fali!");
         });
       //go to list page
-      this.$router.push("/");
+      this.$router.go(this.$router.push('/'));
+      
     }
   }
 };

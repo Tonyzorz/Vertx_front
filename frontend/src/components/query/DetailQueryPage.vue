@@ -60,7 +60,7 @@ export default {
         .catch(err => {
           console.error("update fali!");
         });
-      this.$router.push("/");
+      this.$router.go(this.$router.push('/'));
     }
   }
 };

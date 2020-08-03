@@ -77,7 +77,7 @@ export default {
           //go through queryString and find the id and delete from data
           for (var i = 0; i < this.property.length; i++) {
             if (this.property[i].id == buttonValue) {
-              this.property.splice(this.property[i], 1);
+              this.property.splice(i, 1);
             }
           }
         })
