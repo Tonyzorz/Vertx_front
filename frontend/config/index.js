@@ -19,126 +19,126 @@ module.exports = {
       //   }
       // },
       '/find': {
-        target: 'http://192.168.11.6:18090/find',
+        target: 'http://127.0.0.1:18090/find',
         changeOrigin: true,
         pathRewrite: {
           '/find': ''
         }
       },
       '/propertyfind': {
-        target: 'http://192.168.11.6:18090/propertyfind',
+        target: 'http://127.0.0.1:18090/propertyfind',
         changeOrigin: true,
         pathRewrite: {
           '/propertyfind': ''
         }
       },
       '/instancefind': {
-        target: 'http://192.168.11.6:18090/instancefind',
+        target: 'http://127.0.0.1:18090/instancefind',
         changeOrigin: true,
         pathRewrite: {
           '/instancefind': ''
         }
       },
       '/find/:queryId': {
-        target: 'http://192.168.11.6:18090/find/:queryId',
+        target: 'http://127.0.0.1:18090/find/:queryId',
         changeOrigin: true,
         pathRewrite: {
           '/find': ''
         }
       },
       '/propertyfind/:id': {
-        target: 'http://192.168.11.6:18090/propertyfind/:id',
+        target: 'http://127.0.0.1:18090/propertyfind/:id',
         changeOrigin: true,
         pathRewrite: {
           '/propertyfind': ''
         }
       },
       '/instancefind/:id/:role/:role_instance_id': {
-        target: 'http://192.168.11.6:18090/instancefind/:id/:role/:role_instance_id',
+        target: 'http://127.0.0.1:18090/instancefind/:id/:role/:role_instance_id',
         changeOrigin: true,
         pathRewrite: {
           '/instancefind': ''
         }
       },
       '/instancefind/:id': {
-        target: 'http://192.168.11.6:18090/instancefind/:id',
+        target: 'http://127.0.0.1:18090/instancefind/:id',
         changeOrigin: true,
         pathRewrite: {
           '/instancefind': ''
         }
       },
       '/delete': {
-        target: 'http://192.168.11.6:18090/delete/:queryId',
+        target: 'http://127.0.0.1:18090/delete/:queryId',
         changeOrigin: true,
         pathRewrite: {
           '^/delete': ''
         }
       },
       '/propertyDelete': {
-        target: 'http://192.168.11.6:18090/propertyDelete/:id',
+        target: 'http://127.0.0.1:18090/propertyDelete/:id',
         changeOrigin: true,
         pathRewrite: {
           '^/propertyDelete': ''
         }
       },
       '/instanceDelete': {
-        target: 'http://192.168.11.6:18090/instanceDelete/:id',
+        target: 'http://127.0.0.1:18090/instanceDelete/:id',
         changeOrigin: true,
         pathRewrite: {
           '^/instanceDelete': ''
         }
       },
       '/queryInsert': {
-        target: 'http://192.168.11.6:18090/queryInsert',
+        target: 'http://127.0.0.1:18090/queryInsert',
         changeOrigin: true,
         pathRewrite: {
           '^/queryInsert': ''
         }
       },
       '/propertyInsert': {
-        target: 'http://192.168.11.6:18090/propertyInsert',
+        target: 'http://127.0.0.1:18090/propertyInsert',
         changeOrigin: true,
         pathRewrite: {
           '^/propertyInsert': ''
         }
       },
       '/instanceInsert': {
-        target: 'http://192.168.11.6:18090/instanceInsert',
+        target: 'http://127.0.0.1:18090/instanceInsert',
         changeOrigin: true,
         pathRewrite: {
           '^/instanceInsert': ''
         }
       },
       '/queryUpdate': {
-        target: 'http://192.168.11.6:18090/queryUpdate',
+        target: 'http://127.0.0.1:18090/queryUpdate',
         changeOrigin: true,
         pathRewrite: {
           '^/queryUpdate': ''
         }
       },
       '/propertyUpdate': {
-        target: 'http://192.168.11.6:18090/propertyUpdate',
+        target: 'http://127.0.0.1:18090/propertyUpdate',
         changeOrigin: true,
         pathRewrite: {
           '^/propertyUpdate': ''
         }
       },
       '/instanceUpdate': {
-        target: 'http://192.168.11.6:18090/instanceUpdate',
+        target: 'http://127.0.0.1:18090/instanceUpdate',
         changeOrigin: true,
         pathRewrite: {
           '^/instanceUpdate': ''
         }
       },
       '/headerData': {
-        target: 'http://192.168.11.6:18090/headerData',
+        target: 'http://127.0.0.1:18090/headerData',
         changeOrigin: true,
         pathRewrite: {
           '^/headerData': ''
         }
       },
       '/querySearch': {
-        target: 'http://192.168.11.6:18090/querySearch',
+        target: 'http://127.0.0.1:18090/querySearch',
         changeOrigin: true,
         pathRewrite: {
           '^/querySearch': ''
