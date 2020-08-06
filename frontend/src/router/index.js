@@ -12,6 +12,7 @@ import DetailPropertyPage from '@/components/property/DetailPropertyPage'
 import InstanceInsertPage from '@/components/instance/InstanceInsertPage'
 import InstanceListPage from '@/components/instance/InstanceListPage'
 import DetailInstancePage from '@/components/instance/DetailInstancePage'
+import DetailInstanceIDPage from '@/components/instance/DetailInstanceIDPage'
 Vue.use(Router)
 
 export default new Router({
@@ -43,7 +44,7 @@ export default new Router({
       component: QueryInsertPage
     },
     {
-      path: '/:id',
+      path: '/:queryId',
       name: 'detailquerypage',
       component: DetailQueryPage
     },
@@ -73,9 +74,14 @@ export default new Router({
       component: InstanceInsertPage
     },
     {
-      path: '/instance/:id',
+      path: '/instance/:id/:role/:role_instance_id',
       name: 'detailinstancepage',
       component: DetailInstancePage
+    },
+    {
+      path: '/instance/:id',
+      name: 'detailinstanceidpage',
+      component: DetailInstanceIDPage
     }
     // {
     //   path: '/queryUpdate',

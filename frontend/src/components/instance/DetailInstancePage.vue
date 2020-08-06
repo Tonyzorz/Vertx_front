@@ -40,7 +40,10 @@
 export default {
   created: function() {
     var id = this.$route.params.id;
-    this.$http.get(`/instancefind/${id}`).then(response => {
+    var role = this.$route.params.role;
+    var role_instance_id = this.$route.params.role_instance_id;
+    
+    this.$http.get(`/instancefind/${id}/${role}/${role_instance_id}`).then(response => {
       console.log(JSON.stringify(response));
       this.instance = response.data[0];
     });

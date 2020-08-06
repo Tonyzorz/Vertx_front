@@ -3,16 +3,15 @@
     <table border="1">
       <router-link :to="{name: 'queryinsertpage'}" tag="button">insert query</router-link>
       <tr>
-        <td>id</td>
-        <td>queryString</td>
+        <td>아이디</td>
+        <td>쿼리</td>
         <td>세부 내용</td>
         <td>디비 타입</td>
-        <td>version</td>
+        <td>권한</td>
         <td>수정</td>
-        <!-- <td>삭제</td> -->
       </tr>
       <tr>
-        <td>{{queryString.id}}</td>
+        <td>{{queryString.queryId}}</td>
         <td>
           <input type="text" name="queryString" v-model="queryString.queryString" />
         </td>
@@ -38,8 +37,8 @@
 
 export default {
   created: function() {
-    var id = this.$route.params.id;
-    this.$http.get(`/find/${id}`).then(response => {
+    var queryId = this.$route.params.queryId;
+    this.$http.get(`/find/${queryId}`).then(response => {
       console.log(JSON.stringify(response));
       this.queryString = response.data[0];
       console.log(JSON.stringify(this.queryString));
@@ -60,7 +59,7 @@ export default {
         .catch(err => {
           console.error("update fali!");
         });
-      this.$router.go(this.$router.push('/'));
+      this.$router.go(this.$router.push("/"));
     }
   }
 };

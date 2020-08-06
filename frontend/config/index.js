@@ -39,8 +39,8 @@ module.exports = {
           '/instancefind': ''
         }
       },
-      '/find/:id': {
-        target: 'http://192.168.11.6:18090/find/:id',
+      '/find/:queryId': {
+        target: 'http://192.168.11.6:18090/find/:queryId',
         changeOrigin: true,
         pathRewrite: {
           '/find': ''
@@ -53,6 +53,13 @@ module.exports = {
           '/propertyfind': ''
         }
       },
+      '/instancefind/:id/:role/:role_instance_id': {
+        target: 'http://192.168.11.6:18090/instancefind/:id/:role/:role_instance_id',
+        changeOrigin: true,
+        pathRewrite: {
+          '/instancefind': ''
+        }
+      },
       '/instancefind/:id': {
         target: 'http://192.168.11.6:18090/instancefind/:id',
         changeOrigin: true,
@@ -61,7 +68,7 @@ module.exports = {
         }
       },
       '/delete': {
-        target: 'http://192.168.11.6:18090/delete/:id',
+        target: 'http://192.168.11.6:18090/delete/:queryId',
         changeOrigin: true,
         pathRewrite: {
           '^/delete': ''
@@ -128,6 +135,13 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           '^/headerData': ''
+        }
+      },
+      '/querySearch': {
+        target: 'http://192.168.11.6:18090/querySearch',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/querySearch': ''
         }
       }
     },

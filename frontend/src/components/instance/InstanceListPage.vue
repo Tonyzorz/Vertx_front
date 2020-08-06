@@ -14,9 +14,13 @@
       <li>삭제</li>
     </ul>
     <ul v-for="inst in instance" v-bind:key="[inst.id, inst.role, inst.role_instance_id]">
-      <li>{{inst.id}}</li>
-      <router-link :to="{name: 'detailinstancepage', params: {id: inst.id}}">
-      <li>{{inst.role}}</li>
+      <router-link :to="{name: 'detailinstanceidpage', params: {id: inst.id}}">
+        <li>{{inst.id}}</li>
+      </router-link>
+      <router-link
+        :to="{name: 'detailinstancepage', params: {id: inst.id, role: inst.role, role_instance_id: inst.role_instance_id}}"
+      >
+        <li>{{inst.role}}</li>
       </router-link>
       <li>{{inst.role_instance_id}}</li>
       <li>{{inst.instance_nm}}</li>
@@ -24,7 +28,11 @@
       <li>{{inst.instance_desc}}</li>
       <li>{{inst.worker_yn}}</li>
       <li>
-        <button name="instId" v-bind:value="{test : inst.id, test2 : inst.role, test3 : inst.role_instance_id}" v-on:click="deleteQuery(inst)">삭제</button>
+        <button
+          name="instId"
+          v-bind:value="{test : inst.id, test2 : inst.role, test3 : inst.role_instance_id}"
+          v-on:click="deleteQuery(inst)"
+        >삭제</button>
       </li>
     </ul>
   </div>
@@ -36,7 +44,8 @@ export default {
   created() {
     console.log("entereed property list ");
     this.$http
-      .get("/instancefind").then(response => {
+      .get("/instancefind")
+      .then(response => {
         this.instance = response.data;
       })
       .catch(error => {
@@ -63,13 +72,13 @@ export default {
       console.log(idValue);
       console.log(roleValue);
       console.log(instanceIdValue);
-      
+
       this.$http
         .delete("/instanceDelete", {
           params: {
             id: idValue,
             role: roleValue,
-            role_instance_id: instanceIdValue,
+            role_instance_id: instanceIdValue
           },
           validateStatus: status => {
             return true; // I'm always returning true, you may want to do it depending on the status received
@@ -78,7 +87,11 @@ export default {
         .then(response => {
           //go through queryString and find the id and delete from data
           for (var i = 0; i < this.instance.length; i++) {
-            if (this.instance[i].id == idValue && this.instance[i].role == roleValue && this.instance[i].role_instance_id == instanceIdValue) {
+            if (
+              this.instance[i].id == idValue &&
+              this.instance[i].role == roleValue &&
+              this.instance[i].role_instance_id == instanceIdValue
+            ) {
               this.instance.splice(i, 1);
             }
           }

@@ -1,16 +1,9 @@
 <template>
   <div id="app">
-    <router-link :to="{name: 'querylistpage'}">
-      querylist
-    </router-link>
-    <img src="./assets/logo.png">
-    <router-link :to="{name: 'propertylistpage'}">
-      propertylist
-    </router-link>
-    <router-link :to="{name: 'instancelistpage'}">
-      instancelist
-    </router-link>
-    <router-view/>
+    <router-link :to="{name: 'querylistpage'}">querylist</router-link>
+    <router-link :to="{name: 'propertylistpage'}">propertylist</router-link>
+    <router-link :to="{name: 'instancelistpage'}">instancelist</router-link>
+    <router-view />
   </div>
 </template>
 
@@ -18,9 +11,8 @@
 /* eslint-disable */
 
 export default {
-  name: 'App',
-
-}
+  name: "App",
+};
 </script>
 
 <style>

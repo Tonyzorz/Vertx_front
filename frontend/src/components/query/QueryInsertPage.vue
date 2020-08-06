@@ -2,12 +2,16 @@
   <form method="post" @submit.stop.prevent="mySubmit">
     <div>
       <label for="name">쿼리 아이디</label>
-      <input type="text" name="id" required v-model="query.id" />
+      <input type="text" name="queryId" required v-model="query.queryId" />
     </div>
+    <span>{{msg.queryString}}</span>
+    <span>{{message}}</span>
     <div>
       <label for="queryString">쿼리 내용</label>
       <textarea rows="5" cols="100" name="queryString" required v-model="query.queryString" />
     </div>
+    <!-- <input type="text" v-model="email" required />
+    <br /> -->
     <div>
       <label for="descript">세부 설명</label>
       <textarea rows="5" cols="100" name="descript" required v-model="query.descript" />
@@ -32,30 +36,50 @@ export default {
   data() {
     return {
       query: {
-        id: "",
+        queryId: "",
         queryString: "",
         descript: "",
         sqlType: "",
-        role: "",
+        role: ""
       },
-      response: ""
+      email: "",
+      response: "",
+      msg: [],
+      message: ""
     };
   },
+  
   methods: {
     mySubmit() {
       console.log("this.query" + JSON.stringify(this.query));
-      this.$http
-        .post("/queryInsert", this.query)
-        .then(res => {
-          console.log("upload success!");
-        })
-        .catch(err => {
-          console.error("upload fali!");
-        });
-      //go to list page
-      this.$router.go(this.$router.push('/'));
       
-    }
+      var testing = JSON.stringify(this.query);
+      var jsonTest = JSON.parse(testing);
+      var beforeTest = jsonTest.queryString;
+      var beforeReplace = jsonTest.descript;
+
+      beforeReplace = beforeReplace.replace(/(')/g, "\\'");
+      beforeReplace = beforeReplace.replace(/(")/g, '\"');
+
+      this.query.descript = beforeReplace;
+      if(/(#{queryId})/g.test(beforeTest)){
+        this.msg['queryString'] = "쿼리 내용에 입력된 값이 잘못되었습니다";
+        this.message = ".";
+      } else {
+        this.msg['queryString'] = '';
+        this.$http
+          .post("/queryInsert", this.query)
+          .then(res => {
+            console.log("upload success!");
+          })
+          .catch(err => {
+            console.error("upload fali!");
+          });
+        //go to list page
+        this.$router.go(this.$router.push("/"));
+      }
+
+    },
   }
 };
 </script>
