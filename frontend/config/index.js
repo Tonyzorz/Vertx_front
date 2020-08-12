@@ -20,6 +20,7 @@ module.exports = {
       // },
       '/find': {
         target: 'http://127.0.0.1:18090/find',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '/find': ''
@@ -27,6 +28,7 @@ module.exports = {
       },
       '/propertyfind': {
         target: 'http://127.0.0.1:18090/propertyfind',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '/propertyfind': ''
@@ -34,6 +36,7 @@ module.exports = {
       },
       '/instancefind': {
         target: 'http://127.0.0.1:18090/instancefind',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '/instancefind': ''
@@ -41,6 +44,7 @@ module.exports = {
       },
       '/find/:queryId': {
         target: 'http://127.0.0.1:18090/find/:queryId',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '/find': ''
@@ -48,6 +52,7 @@ module.exports = {
       },
       '/propertyfind/:id': {
         target: 'http://127.0.0.1:18090/propertyfind/:id',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '/propertyfind': ''
@@ -55,6 +60,7 @@ module.exports = {
       },
       '/instancefind/:id/:role/:role_instance_id': {
         target: 'http://127.0.0.1:18090/instancefind/:id/:role/:role_instance_id',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '/instancefind': ''
@@ -62,6 +68,7 @@ module.exports = {
       },
       '/instancefind/:id': {
         target: 'http://127.0.0.1:18090/instancefind/:id',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '/instancefind': ''
@@ -69,6 +76,7 @@ module.exports = {
       },
       '/delete': {
         target: 'http://127.0.0.1:18090/delete/:queryId',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/delete': ''
@@ -76,6 +84,7 @@ module.exports = {
       },
       '/propertyDelete': {
         target: 'http://127.0.0.1:18090/propertyDelete/:id',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/propertyDelete': ''
@@ -83,6 +92,7 @@ module.exports = {
       },
       '/instanceDelete': {
         target: 'http://127.0.0.1:18090/instanceDelete/:id',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/instanceDelete': ''
@@ -90,6 +100,7 @@ module.exports = {
       },
       '/queryInsert': {
         target: 'http://127.0.0.1:18090/queryInsert',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/queryInsert': ''
@@ -97,6 +108,7 @@ module.exports = {
       },
       '/propertyInsert': {
         target: 'http://127.0.0.1:18090/propertyInsert',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/propertyInsert': ''
@@ -104,6 +116,7 @@ module.exports = {
       },
       '/instanceInsert': {
         target: 'http://127.0.0.1:18090/instanceInsert',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/instanceInsert': ''
@@ -111,6 +124,7 @@ module.exports = {
       },
       '/queryUpdate': {
         target: 'http://127.0.0.1:18090/queryUpdate',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/queryUpdate': ''
@@ -118,6 +132,7 @@ module.exports = {
       },
       '/propertyUpdate': {
         target: 'http://127.0.0.1:18090/propertyUpdate',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/propertyUpdate': ''
@@ -125,6 +140,7 @@ module.exports = {
       },
       '/instanceUpdate': {
         target: 'http://127.0.0.1:18090/instanceUpdate',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/instanceUpdate': ''
@@ -132,6 +148,7 @@ module.exports = {
       },
       '/headerData': {
         target: 'http://127.0.0.1:18090/headerData',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/headerData': ''
@@ -139,6 +156,7 @@ module.exports = {
       },
       '/querySearch': {
         target: 'http://127.0.0.1:18090/querySearch',
+        headers: {Connection: 'keep-alive'},
         changeOrigin: true,
         pathRewrite: {
           '^/querySearch': ''

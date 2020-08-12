@@ -1,8 +1,16 @@
 <template>
   <div id="app">
-    <router-link :to="{name: 'querylistpage'}">querylist</router-link>
-    <router-link :to="{name: 'propertylistpage'}">propertylist</router-link>
-    <router-link :to="{name: 'instancelistpage'}">instancelist</router-link>
+    <ul class="mainapp">
+      <li class="mainlist">
+        <router-link :to="{name: 'querylistpage'}">쿼리</router-link>
+      </li>
+      <li class="mainlist">
+        <router-link :to="{name: 'propertylistpage'}">프로퍼티</router-link>
+      </li>
+      <li class="mainlist">
+        <router-link :to="{name: 'instancelistpage'}">인스턴스</router-link>
+      </li>
+    </ul>
     <router-view />
   </div>
 </template>
@@ -11,7 +19,7 @@
 /* eslint-disable */
 
 export default {
-  name: "App",
+  name: "App"
 };
 </script>
 
@@ -22,7 +30,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 /* Style the header with a grey background and some padding */
 .header {
@@ -64,5 +71,37 @@ export default {
 /* Float the link section to the right */
 .header-right {
   float: right;
+}
+
+ul.mainapp {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul.mainapp li {
+  float: left;
+}
+
+ul.mainapp li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+ul.mainapp li a:hover {
+  background-color: #111;
+}
+
+ul.mainapp li a:hover:not(.active) {
+  background-color: #111;
+}
+ul.mainapp .active {
+  background-color: #4caf50;
 }
 </style>

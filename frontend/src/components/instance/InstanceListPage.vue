@@ -3,7 +3,7 @@
     <div class="header">
       <router-link :to="{name: 'instanceinsertpage'}" tag="button">insert instance</router-link>
     </div>
-    <ul>
+    <ul class="instance">
       <li>아이디</li>
       <li>역할/권한</li>
       <li>인스턴스 아이디</li>
@@ -13,7 +13,7 @@
       <li>인스턴스 워커 여부</li>
       <li>삭제</li>
     </ul>
-    <ul v-for="inst in instance" v-bind:key="[inst.id, inst.role, inst.role_instance_id]">
+    <ul class="instance" v-for="inst in instance" v-bind:key="[inst.id, inst.role, inst.role_instance_id]">
       <router-link :to="{name: 'detailinstanceidpage', params: {id: inst.id}}">
         <li>{{inst.id}}</li>
       </router-link>
@@ -116,14 +116,14 @@ export default {
 </script>
 <style>
 /* Style the header with a grey background and some padding */
-ul {
+ul.instance {
   list-style-type: none;
   width: 100%;
   display: table;
   table-layout: fixed;
 }
 
-li {
+ul.instance li {
   display: table-cell;
   width: 50%;
 }

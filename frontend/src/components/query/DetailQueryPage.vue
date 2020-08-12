@@ -13,15 +13,17 @@
       <tr>
         <td>{{queryString.queryId}}</td>
         <td>
-          <input type="text" name="queryString" v-model="queryString.queryString" />
+          <textarea rows="10" cols="50" name="queryString" v-model="queryString.queryString" />
         </td>
         <td>
-          <input type="text" name="desc" v-model="queryString.descript" />
+          <textarea rows="10" cols="50" name="desc" v-model="queryString.descript" />
         </td>
         <td>
-          <input type="text" name="sqlType" v-model="queryString.sqlType" />
+          <textarea rows="10" cols="20" type="text" name="sqlType" v-model="queryString.sqlType" />
         </td>
-        <td>{{queryString.role}}</td>
+        <td>
+          <textarea rows="10" cols="20" type="text" name="role" v-model="queryString.role" />
+        </td>
         <td>
           <button type="submit">수정</button>
         </td>
@@ -30,6 +32,8 @@
         </td>-->
       </tr>
     </table>
+    <span>{{msg.queryString}}</span>
+    <span>{{message}}</span>
   </form>
 </template>
 <script>
@@ -46,21 +50,39 @@ export default {
   },
   data: function() {
     return {
-      queryString: []
+      queryString: [],
+      msg: [],
+      message: ""
     };
   },
   methods: {
     edit() {
-      this.$http
-        .post("/queryUpdate", this.queryString)
-        .then(res => {
-          console.log("update success!");
-        })
-        .catch(err => {
-          console.error("update fali!");
-        });
-      this.$router.go(this.$router.push("/"));
-    }
+      var testing = JSON.stringify(this.queryString);
+      var jsonTest = JSON.parse(testing);
+      var beforeTest = jsonTest.queryString;
+      var beforeReplace = jsonTest.descript;
+
+      beforeReplace = beforeReplace.replace(/(')/g, "\\'");
+      beforeReplace = beforeReplace.replace(/(")/g, '"');
+
+      this.queryString.descript = beforeReplace;
+      if (/(#{queryId})/g.test(beforeTest)) {
+        this.msg["queryString"] = "쿼리 내용에 입력된 값이 잘못되었습니다";
+        this.message = ".";
+      } else {
+        this.msg["queryString"] = "";
+
+        this.$http
+          .post("/queryUpdate", this.queryString)
+          .then(res => {
+            console.log("update success!");
+          })
+          .catch(err => {
+            console.error("update fali!");
+          });
+        this.$router.go(this.$router.push("/"));
+      }
+    },
   }
-};
+}
 </script>

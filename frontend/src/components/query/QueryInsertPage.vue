@@ -18,11 +18,11 @@
     </div>
     <div>
       <label for="sqlType">디비 타입</label>
-      <input type="text" name="sqlType" required v-model="query.sqlType" />
+      <textarea rows="5" cols="100" name="sqlType" required v-model="query.sqlType" />
     </div>
     <div>
-      <label for="role">권한</label>
-      <input type="text" name="role" required v-model="query.role" />
+      <label for="role">권한 </label>
+      <textarea rows="5" cols="105" name="role" required v-model="query.role" />
     </div>
     <div>
       <button type="submit">업로드</button>
