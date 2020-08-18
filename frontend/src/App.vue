@@ -1,18 +1,70 @@
 <template>
-  <div id="app">
-    <ul class="mainapp">
-      <li class="mainlist">
-        <router-link :to="{name: 'querylistpage'}">쿼리</router-link>
-      </li>
-      <li class="mainlist">
-        <router-link :to="{name: 'propertylistpage'}">프로퍼티</router-link>
-      </li>
-      <li class="mainlist">
-        <router-link :to="{name: 'instancelistpage'}">인스턴스</router-link>
-      </li>
-    </ul>
-    <router-view />
-  </div>
+	<div id="app">
+		<header>
+			<nav class="navbar navbar-default">
+				<a class="navbar-brand">
+					<i class="icon-desktop"></i>&nbsp;
+					Vertx Manager
+				</a>
+				<ul class="nav">
+					<li class="dropdown dark user-menu">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="">
+							<i class="icon-user"></i>&nbsp;
+							<span>관리자</span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="">
+									<i class="icon-signout"></i>
+									Logout
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- // 로그아웃 -->
+				</ul>
+			</nav>
+		</header>
+
+		<div id="wrapper">
+			<div id="main-nav-bg"></div>
+			<nav id="main-nav">
+				<div class="navigation">
+					<ul class="nav nav-stacked">
+						<li>
+							<a class="dropdown-collapse" href="#"><i class="icon-desktop"></i><span>쿼리 관리</span><i class="icon-angle-down angle-down"></i></a>
+							<ul class="nav nav-stacked" style="display:block;">
+								<router-link :to="{name: 'querylistpage'}">
+									<i class="icon-caret-right"></i>
+									<span>쿼리 조회</span>
+								</router-link>
+							</ul>
+						</li>
+						<li>
+							<a class="dropdown-collapse" href="#"><i class="icon-desktop"></i><span>프로퍼티 관리</span><i class="icon-angle-down angle-down"></i></a>
+							<ul class="nav nav-stacked" style="display:block;">
+								<router-link :to="{name: 'propertylistpage'}">
+									<i class="icon-caret-right"></i>
+									<span>프로퍼티 조회</span>
+								</router-link>
+							</ul>
+						</li>
+						<li>
+							<a class="dropdown-collapse" href="#"><i class="icon-desktop"></i><span>인스턴스 관리</span><i class="icon-angle-down angle-down"></i></a>
+							<ul class="nav nav-stacked" style="display:block;">
+								<router-link :to="{name: 'instancelistpage'}">
+									<i class="icon-caret-right"></i>
+									<span>인스턴스 조회</span>
+								</router-link>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<router-view />
+	</div>
 </template>
 
 <script>
@@ -24,84 +76,6 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-/* Style the header with a grey background and some padding */
-.header {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 20px 10px;
-}
-
-/* Style the header links */
-.header .header-right div {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-}
-
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header .header-right div.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-/* Change the background color on mouse-over */
-.header .header-right div:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Style the active/current link*/
-.header .header-right div.active {
-  background-color: dodgerblue;
-  color: white;
-}
-
-/* Float the link section to the right */
-.header-right {
-  float: right;
-}
-
-ul.mainapp {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-ul.mainapp li {
-  float: left;
-}
-
-ul.mainapp li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-ul.mainapp li a:hover {
-  background-color: #111;
-}
-
-ul.mainapp li a:hover:not(.active) {
-  background-color: #111;
-}
-ul.mainapp .active {
-  background-color: #4caf50;
-}
+	@import './assets/css/bootstrap/bootstrap.css';
+	@import './assets/css/light-theme.css';
 </style>
