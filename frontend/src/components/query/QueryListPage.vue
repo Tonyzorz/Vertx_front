@@ -111,7 +111,7 @@
 							<div class="box-header">
 								<div class="title"><i class="icon-double-angle-right text-red"></i> 쿼리 목록</div>
 								<div class="actions">
-									<button class="btn" type="button" style="width: 70px" onclick="javascript:fn_apiRegist()"><i class="icon-pencil"></i>등록</button>
+									<router-link :to="{name: 'queryinsertpage'}" tag="button" class="btn" style="width: 70px"><i class="icon-pencil"></i>등록</router-link>
 								</div>
 								<div class="actions">
 								<select name="pageview" class="form-control" id="pageview" onchange="fn_goSearch(1);">
