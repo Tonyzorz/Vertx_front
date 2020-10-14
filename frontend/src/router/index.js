@@ -34,6 +34,11 @@ export default new Router({
       component: UploadMoviePage
     },
     {
+      path: '/:listsize',
+      name: 'querylistpage',
+      component: QueryListPage
+    },
+    {
       path: '/',
       name: 'querylistpage',
       component: QueryListPage

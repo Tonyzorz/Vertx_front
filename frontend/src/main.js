@@ -4,9 +4,10 @@ import axios from 'axios'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import $ from 'jquery'
 
 window.axios = require('axios')
-
+window.$ = $
 Vue.prototype.$http = axios
 Vue.prototype.$http = window.axios
 Vue.config.productionTip = false

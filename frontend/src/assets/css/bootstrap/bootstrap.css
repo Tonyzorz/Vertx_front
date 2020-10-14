@@ -3329,9 +3329,10 @@ input[type="button"].btn-block {
 
 .pagination {font-size:10px;
   display: inline-block;
-  padding-left: 0;
-  margin: 10px 0;
-  border-radius: 4px; }
+  padding-left: 15%;
+  margin: 0 auto;
+  border-radius: 4px;
+  width: 100%; }
   .pagination > li {
     display: inline; }
     .pagination > li > a,
@@ -4906,5 +4907,11 @@ td.visible-print {
   td.hidden-print {
     display: none !important; } }
 
+.active_page {color: red;}
+/* .ellipsis {display: block; text-overflow: ellipsis; width: 100px; overflow: hidden; white-space: nowrap; }
+ */.default {color: black;}
+.asc {color: red;}
+.desc {color: #0080c0;}
+.menu_styles {font-size: 13px; display: inline-block; margin-top: 4px;}
 /* ��ũ ��Ÿ�� �߰� */
 

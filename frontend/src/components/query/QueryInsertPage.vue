@@ -69,7 +69,12 @@
 													<th class="col-md-3"><label class="col-md-3">DB 타입 </label></th>
 													<td class="ta_l">
 														<div class="col-md-3" style="padding-left: 0 !important;">
-															<input class="form-control" type="text" name="sqlType" required v-model="query.sqlType" />
+<!-- 															<input class="form-control" type="text" name="sqlType" required v-model="query.sqlType" /> -->
+															<select class="form-control" v-model="query.sqlType" id="sqlType" name="sqlType">
+																<option>mysql</option>
+																<option>oracle</option>
+																<option>test</option>
+															</select>
 														</div>
 													</td>
 												</tr>
@@ -77,7 +82,13 @@
 													<th class="col-md-3"><label class="col-md-3">권한 </label></th>
 													<td class="ta_l">
 														<div class="col-md-3" style="padding-left: 0 !important;">
-															<input class="form-control" type="text" name="role" required v-model="query.role" />
+<!-- 															<input class="form-control" type="text" name="role" required v-model="query.role" /> -->
+															<select class="form-control" v-model="query.role" id="role" name="role">
+																<option>scs</option>
+																<option>test</option>
+																<option>ms</option>
+																<option>user</option>
+															</select>
 														</div>
 													</td>
 												</tr>
@@ -89,7 +100,7 @@
 									<div class="row">
 										<div class="btn_area_b">
 											<button class="btn btn-primary" type="submit"><i class="icon-ok"></i>&nbsp; 등록</button>
-											<button class="btn" type="button" onclick="goCancle()"><i class="icon-list"></i>&nbsp; 목록</button>
+											<button class="btn" type="button" v-on:click="goCancle()"><i class="icon-list"></i>&nbsp; 목록</button>
 										</div>
 									</div>
 								</div>
@@ -107,19 +118,39 @@
 /* eslint-disable */
 
 export default {
+	created: function(){
+	    this.listSize = this.$route.params.listSize;
+	    this.range = this.$route.params.range;
+	    this.page = this.$route.params.page;
+	    this.searchQueryString = this.$route.params.searchQueryString,
+	    this.searchDescript = this.$route.params.searchDescript,
+	    this.searchSqlType = this.$route.params.searchSqlType,
+	    this.searchRole = this.$route.params.searchRole,
+	    this.searchQueryId = this.$route.params.searchQueryId
+	    
+	
+	},
   data() {
     return {
       query: {
         queryId: "",
         queryString: "",
         descript: "",
-        sqlType: "",
-        role: ""
+        sqlType: "mysql",
+        role: "scs"
       },
       email: "",
       response: "",
       msg: [],
-      message: ""
+      message: "",
+      listSize: 10,
+      range: 1,
+      page: 1,
+      searchQueryString: '',
+      searchDescript: '',
+      searchSqlType: '',
+      searchRole: '',
+      searchQueryId : '',
     };
   },
   
@@ -150,10 +181,53 @@ export default {
             console.error("upload fali!");
           });
         //go to list page
-        this.$router.go(this.$router.push("/"));
+        this.$router.go(this.$router.push({name: "/", query: {
+	  	 		listSize: this.listSize, 
+	  	 		range: this.range, 
+	  	 		page: this.page,
+   	  	 	searchQueryString : this.searchQueryString,
+			searchDescript: this.searchDescript,
+			searchSqlType: this.searchSqlType,
+			searchRole: this.searchRole,
+			searchQueryId: this.searchQueryId,
+	  	 		}}));
       }
 
     },
+    goCancle(){
+    	this.msg["queryString"] = "";
+
+    	this.$router.go(this.$router.push({name: "/", query: {
+	  	 		listSize: this.listSize, 
+	  	 		range: this.range, 
+	  	 		page: this.page,
+   	  	 	searchQueryString : this.searchQueryString,
+			searchDescript: this.searchDescript,
+			searchSqlType: this.searchSqlType,
+			searchRole: this.searchRole,
+			searchQueryId: this.searchQueryId,
+	  	 		}}));
+    	
+//         this.$http
+//           .post("/queryUpdate", this.queryString)
+//           .then(res => {
+//             console.log("update success!");
+//           })
+//           .catch(err => {
+//             console.error("update fali!");
+//           });
+        
+//    	  	 	this.$router.go(this.$router.push({name: "/", query: {
+//    	  	 		listSize: this.listSize, 
+//    	  	 		range: this.range, 
+//    	  	 		page: this.page,
+// 	   	  	 	searchQueryString : this.searchQueryString,
+// 				searchDescript: this.searchDescript,
+// 				searchSqlType: this.searchSqlType,
+// 				searchRole: this.searchRole,
+// 				searchQueryId: this.searchQueryId,
+//    	  	 		}}));
+    }
   }
 };
 </script>

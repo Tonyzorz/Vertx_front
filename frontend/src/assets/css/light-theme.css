@@ -2108,7 +2108,8 @@ header .navbar {
           #main-nav .navigation > .nav > li .nav > li.active > a [class^="icon-"], #main-nav .navigation > .nav > li .nav > li.active > a [class*=" icon-"] {
             color: #0080c0; }
       #main-nav .navigation > .nav > li > .nav {
-        border-right: 1px solid transparent; }
+        border-right: 1px solid transparent;
+        height: 30px; }
         #main-nav .navigation > .nav > li > .nav > li {
           margin: 0; }
           #main-nav .navigation > .nav > li > .nav > li > a {
@@ -2246,9 +2247,10 @@ body {
     margin-bottom: 7px; }
     @media (min-width: 768px) {
       #footer .text {
-        text-align: left;
+        text-align: center;
         padding-top: 7px;
-        margin-bottom: 0; } }
+        margin: auto;
+        width: 100%; } }
   @media (min-width: 768px) {
     #footer .buttons {
       text-align: right; } }
